@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: url("https://jooinn.com/images/blue-flower-91.jpg");
+  background-size: cover;
+  box-sizing: border-box;
+  color: #fff;
+  /* Push to bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px !important;
+  min-height: 100vh;
+}
+
+.container-page {
+  height: calc(100vh - 163px) !important;
+  overflow-y: hidden;
+}
+
+.form-check-label {
+  color: white;
+}
+
+.signin-form {
+  background: rgba(0, 0, 0, 0.8);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.flashes-error {
+  text-align: center;
+  color: red;
+}
+
+.flashes-success {
+  text-align: center;
+  color: greenyellow;
+}
+
+
+/*# sourceMappingURL=terms.css.map*/

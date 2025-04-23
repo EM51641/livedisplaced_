@@ -1,0 +1,72 @@
+.nav-link:hover {
+  color: white !important;
+}
+
+.general-bar {
+  justify-content: center;
+}
+
+.user-bar {
+  justify-content: end;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#cookie-consent-container,
+#cookie-settings {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.cookie-title {
+  text-align: center;
+}
+
+.cookie-text {
+  text-align: justify;
+}
+
+.cookie-consent-all {
+  color: black !important;
+}
+
+.cookie-consent-essential {
+  color: black !important;
+}
+
+.btn-second {
+  color: black !important;
+}
+
+.footer {
+  position: static;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-links {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links:hover {
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  color: grey !important;
+}
+
+.name {
+  color: white;
+}
+
+
+/*# sourceMappingURL=base.css.map*/

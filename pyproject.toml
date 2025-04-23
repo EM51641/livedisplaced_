@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "refugee-project"
+version = "1.0.0"
+description = "Backend aggregating data on refugee flows"
+authors = ["Elyes Mahjoubi <elyesmahjoubi@gmail.com>"]
+readme = "README.md"
+maintainers = [
+    "Elyes Mahjoubi <elyesmahjoubi@gmail.com>",
+]
+license = "MIT"
+include = ["CHANGELOG.md"]
+packages = [{include = "src", from = "."}]
+
+[tool.poetry.dependencies]
+python="^3.13"
+quart="^0.19.6"
+quart-auth="^0.11.0"
+quart-wtforms="^1.0.0"
+sqlalchemy={extras = ["asyncio"], version = "^2.0.21"}
+marshmallow="^3.20.1"
+psycopg="^3.1.11"
+pycountry="^24.6.1"
+Authlib="^1.2.1"
+sendgrid-async = "^2.0.0"
+sendgrid="^6.9.7"
+fake-useragent = "^1.5.1"
+python-dotenv = "^1.0.1"
+email-validator = "^2.2.0"
+werkzeug = "^3.0.3"
+psycopg-binary = "^3.2.1"
+psycopg-pool = "^3.2.2"
+certifi = "^2024.2.2"
+markupsafe = "^2.1.5"
+greenlet = "^3.0.3"
+cffi = "^1.16.0"
+requests = "^2.32.3"
+alembic = "^1.14.0"
+boto3 = "^1.35.97"
+boto3-stubs = "^1.35.97"
+
+[tool.poetry.group.dev.dependencies]
+moto = {extras = ["secretsmanager"], version = "^5.0.26"}
+faker = "^33.0.0"
+flake8="^7.1.1"
+pytest="^8.3.3"
+pytest-asyncio="^0.25.0"
+pytest-cov="^6.0.0"
+mypy="^1.11.0"
+mypy-extensions="^1.0.0"
+black = "24.10.0"
+
+
+[tool.pytest.ini_options]
+addopts = "-p no:launch -p no:launch_ros"
+pythonpath = ["."]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning:quart.*",
+    "ignore::DeprecationWarning:pycountry.*",
+    "ignore::DeprecationWarning:werkzeug.*",
+    "ignore::DeprecationWarning:botocore.*",
+    "ignore::DeprecationWarning:asyncio.*",
+    "ignore::pytest.PytestCollectionWarning:quart.*",
+    "ignore::pytest.PytestCollectionWarning:quart.*",
+    "ignore::pytest.PytestCollectionWarning"
+]
+
+[tool.coverage.report]
+exclude_also = [
+    "if TYPE_CHECKING:",
+    ]
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

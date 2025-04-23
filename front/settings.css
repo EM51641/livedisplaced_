@@ -1,0 +1,75 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: -webkit-linear-gradient(top, #06068d, #4169e1, skyblue);
+  box-sizing: border-box;
+  color: #fff;
+  /* Push to bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px !important;
+  min-height: 100vh;
+}
+
+.display {
+  min-height: calc(100vh - 163px) !important;
+}
+
+.banner {
+  background: rgba(255, 255, 255, 0.8);
+  width: 50%;
+}
+
+.nav-tabs .nav-item .nav-link {
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  width: 100%;
+  color: grey;
+}
+
+.flash-error {
+  color: red;
+}
+
+.flash-success {
+  color: green;
+}
+
+.flashes {
+  text-align: center;
+}
+
+.tab-pane {
+  min-height: 250px; /* Example height, adjust as needed */
+}
+
+#home-tab {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#profile-tab {
+  border-radius: 0;
+}
+
+#contact-tab {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  border-bottom-color: black;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+  color: black !important;
+}
+
+.input-group-text {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+
+/*# sourceMappingURL=settings.css.map*/

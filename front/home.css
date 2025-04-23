@@ -1,0 +1,72 @@
+.banner {
+  background-image: url("https://jooinn.com/images/blue-flower-91.jpg");
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+  height: 700px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.bg-img {
+  height: 100%;
+}
+
+.central-banner {
+  color: white;
+  width: 80%;
+}
+
+.display {
+  background: -webkit-linear-gradient(top, #06068d, #4169e1, skyblue);
+  min-height: 100%;
+}
+
+.title-set {
+  color: white;
+  text-align: center;
+}
+
+.hide {
+  position: relative;
+  visibility: hidden;
+  background-color: black;
+  text-align: center;
+  z-index: 0;
+}
+
+.flag-img:hover ~ .hide {
+  visibility: visible;
+}
+
+.chart-container {
+  position: relative;
+  width: 100% !important;
+  height: 1299px;
+}
+
+@media (min-width: 200px) and (max-width: 500px) {
+  .chart-container {
+    position: relative;
+    width: 100% !important;
+    height: 200px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .chart-container {
+    position: relative;
+    width: 100% !important;
+    height: 300px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+  .chart-container {
+    position: relative;
+    width: 100% !important;
+    height: 500px;
+  }
+}
+
+
+/*# sourceMappingURL=home.css.map*/

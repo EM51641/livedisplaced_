@@ -1,0 +1,50 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv/
+env/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.tox/
+
+# Development
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+.envrc
+
+# Project specific
+tests/
+docs/
+*.md
+!README.md
+front/
+.github/
+.data/
+priv/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.docker/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+

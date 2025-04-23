@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  workflow_call:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:16-alpine3.20
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      sendgrid:
+        image: ghashange/sendgrid-mock:1.9.0
+        env:
+          API_KEY: SG.livedisplace123
+        ports:
+          - 3000:3000
+      static:
+        image: nginx:1-alpine3.21
+        ports:
+          - 8001:80
+        volumes:
+          - ${{ github.workspace }}/front:/usr/share/nginx/html
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup the environment
+        uses: ./.github/actions/build_app
+        with:
+          python-version: "3.13.0"
+
+      - name: Check the linting
+        run: poetry run python -m flake8 src
+
+      - name: Check the format
+        run: poetry run python -m black --check src
+
+      - name: Check the typing
+        run: poetry run python -m mypy src
+
+      - name: Run tests
+        env:
+          APP_SECRET_KEY: TEST_SECRET_KEY
+          QUART_DEBUG: true
+
+          DB_NAME: postgres
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+
+          FACEBOOK_CLIENT_ID: TEST_FACEBOOK_CLIENT_ID
+          FACEBOOK_CLIENT_SECRET: TEST_FACEBOOK_CLIENT_SECRET
+          FACEBOOK_SCOPE: email public_profile
+          FACEBOOK_ACCESS_TOKEN_URI: https://graph.facebook.com/oauth/access_token
+          FACEBOOK_CONTENT_URI: https://graph.facebook.com/me?fields=first_name,last_name
+          FACEBOOK_AUTHORIZATION_URI: https://www.facebook.com/dialog/oauth
+          FACEBOOK_URL_FOR: root.web.overview_app.controller
+
+          GOOGLE_CLIENT_ID: TEST_GOOGLE_CLIENT_ID
+          GOOGLE_CLIENT_SECRET: TEST_GOOGLE_CLIENT_SECRET
+          GOOGLE_URL: /oauth2/v3/userinfo
+          GOOGLE_SCOPE: profile email openid
+          GOOGLE_ACCESS_TOKEN_URI: https://oauth2.googleapis.com/token
+          GOOGLE_CONTENT_URI: https://www.googleapis.com/oauth2/v3/userinfo
+          GOOGLE_AUTHORIZATION_URI: https://accounts.google.com/o/oauth2/auth
+          GOOGLE_URL_FOR: root.web.overview_app.controller
+
+          SENDGRID_API_KEY: SG.livedisplace123
+          SENDGRID_TEST_URL: http://localhost:3000/v3/mail/send
+          TEMPLATE_FOLDER: front
+          STATIC_FOLDER: front
+        run: |
+          PYTHONFAULTHANDLER=1 poetry run python -m pytest --cov=src --cov-report=xml

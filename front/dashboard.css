@@ -1,0 +1,62 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.large-container {
+  background-image: url("https://jooinn.com/images/blue-flower-91.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 700px;
+  font-family: "Helvetica Neue", sans-serif;
+  padding: 0%;
+}
+
+.from {
+  background-color: rgb(65, 105, 225, 0.8);
+}
+
+.blurry {
+  background-color: rgb(128, 0, 128, 0.2);
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.select-choice {
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  width: auto;
+}
+
+.img-flag {
+  width: 100%;
+  height: 240px;
+}
+
+.banner {
+  height: 100%;
+}
+
+.title-set {
+  color: white;
+}
+
+.display {
+  background: -webkit-linear-gradient(top, #06068d, #4169e1, skyblue);
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.download-row {
+  color: red !important;
+}
+
+
+/*# sourceMappingURL=dashboard.css.map*/
