@@ -1,6 +1,6 @@
 # Livedisplaced.com
 
-A comprehensive web platform for tracking and visualizing refugee displacement data over time.
+A comprehensive web platform for tracking and visualizing refugee displacement data over time. The infrastructure was hosted on AWS used a similar configuration as in [here](https://github.com/EM51641?tab=repositories)
 
 ## Overview
 
