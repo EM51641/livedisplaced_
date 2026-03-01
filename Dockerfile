@@ -1,5 +1,5 @@
 # Build stage
-FROM python:3.13-alpine AS builder
+FROM python:3.14-alpine AS builder
 
 # Create the build directory
 WORKDIR /_build
@@ -14,7 +14,7 @@ RUN pip install poetry \
     && poetry install --only main --no-interaction --no-ansi --no-root
 
 # Final stage
-FROM python:3.13-alpine AS final
+FROM python:3.14-alpine AS final
 
 # Create the appuser group and user
 RUN addgroup -S appuser && \
